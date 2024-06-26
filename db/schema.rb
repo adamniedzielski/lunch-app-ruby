@@ -15,13 +15,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_06_26_113928) do
   enable_extension "plpgsql"
 
   create_table "cuisines", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
