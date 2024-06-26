@@ -19,6 +19,14 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <p>
+      <%= link_to "Find lunch for today", locations_path %>
+      <%= link_to "Manage restaurants", restaurants_path %>
+    </p>
   </body>
 </html>

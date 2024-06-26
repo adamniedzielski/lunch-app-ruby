@@ -1,0 +1,8 @@
+<h1>Your lunch today is <%= @restaurant.name %> 🎉</h1>
+
+<%= form_for [@location, @lunch] do |f| %>
+  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+  <%= f.submit "Accept" %>
+<% end %>
+
+<%= link_to "Change",  new_location_customised_lunch_path(@location) %>

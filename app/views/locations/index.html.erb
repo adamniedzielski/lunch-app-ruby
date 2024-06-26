@@ -1,0 +1,10 @@
+<h1>Select where you would like to eat</h1>
+
+<ul>
+  <% @locations.each do |location| %>
+    <li>
+      <%= location.name %>
+      <%= link_to "Here", new_location_lunch_path(location) %>
+    </li>
+  <% end %>
+</ul>
