@@ -1,0 +1,17 @@
+<h1>Edit restaurant</h1>
+
+<ul>
+  <% @restaurant.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for @restaurant do |f| %>
+  <%= f.label :name %> <%= f.text_field :name %>
+  <br>
+  <%= f.label :location_id %> <%= f.select :location_id, options_for_select(Location.all.map{|location| [location.name, location.id]}) %>
+  <br>
+  <%= f.label :cuisine_id %> <%= f.select :cuisine_id, options_for_select(Cuisine.all.map{|cuisine| [cuisine.name, cuisine.id]}) %>
+  <br>
+  <%= f.submit "Update" %>
+<% end %>
