@@ -13,5 +13,15 @@
   <br>
   <%= f.label :cuisine_id %> <%= f.select :cuisine_id, options_for_select(Cuisine.all.map{|cuisine| [cuisine.name, cuisine.id]}, @restaurant.cuisine_id) %>
   <br>
+  <%= f.label :closed_on %>
+  <ul>
+    <% Date::DAYNAMES.zip((0..6).to_a).each do |day| %>
+        <li>
+          <%= check_box_tag "restaurant[closed_on][]", day[1], @restaurant.closed_on.include?(day[1]) -%>
+          <%= day[0] -%>
+        </li>
+    <% end %>
+  </ul>
+  <br>
   <%= f.submit "Update" %>
 <% end %>
