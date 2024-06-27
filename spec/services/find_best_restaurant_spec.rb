@@ -46,7 +46,7 @@ RSpec.describe FindBestRestaurant do
   it "does not suggest restaurants that are closed on the given day" do
     location = Location.create!(name: "home")
     vietnamese = Cuisine.create!(name: "vietnamese")
-    imbiss = Restaurant.create!(name: "Imbiss", location: location, cuisine: vietnamese, closed_on: [6])
+    imbiss = Restaurant.create!(name: "Imbiss", location: location, cuisine: vietnamese, closed_on: [ 6 ])
 
     result = FindBestRestaurant.new.call(location, Time.parse("2024-06-29"))
 

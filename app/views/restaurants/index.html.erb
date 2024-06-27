@@ -6,6 +6,11 @@
       <%= restaurant.name %>
       <%= link_to "Show", restaurant_path(restaurant) %>
       <%= link_to "Edit", edit_restaurant_path(restaurant) %>
+      <% if restaurant.active? %>
+        <%= button_to "Deactivate", restaurant_deactivations_path(restaurant), method: :post %>
+      <% else %>
+        <%= button_to "Activate", restaurant_deactivations_path(restaurant), method: :delete %>
+      <% end %>
       <%= button_to "Remove", restaurant_path(restaurant), method: :delete %>
     </li>
   <% end %>

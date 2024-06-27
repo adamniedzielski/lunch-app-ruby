@@ -4,5 +4,9 @@ class Restaurant < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :active, ->{ where(deactivated_at: nil) }
+  scope :active, -> { where(deactivated_at: nil) }
+
+  def active?
+    deactivated_at.blank?
+  end
 end
