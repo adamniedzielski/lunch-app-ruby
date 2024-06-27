@@ -10,7 +10,7 @@ class FindBestRestaurant
   end
 
   def open_restaurants(location, date)
-    location.restaurants.reject do |restaurant|
+    location.restaurants.active.reject do |restaurant|
       restaurant.closed_on.include?(date.wday)
     end
   end

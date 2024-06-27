@@ -52,4 +52,14 @@ RSpec.describe FindBestRestaurant do
 
     expect(result).to eq nil
   end
+
+  it "does not suggest restaurants that are deactivated" do
+    location = Location.create!(name: "home")
+    vietnamese = Cuisine.create!(name: "vietnamese")
+    imbiss = Restaurant.create!(name: "Imbiss", location: location, cuisine: vietnamese, deactivated_at: Time.current)
+
+    result = FindBestRestaurant.new.call(location, Time.current)
+
+    expect(result).to eq nil
+  end
 end
