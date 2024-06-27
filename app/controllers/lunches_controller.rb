@@ -1,7 +1,7 @@
 class LunchesController < ApplicationController
   def new
     @location = Location.find(params.fetch(:location_id))
-    @restaurant = @location.restaurants.sample
+    @restaurant = FindBestRestaurant.new.call(@location, Time.current)
     @lunch = Lunch.new
   end
 
